@@ -34,17 +34,13 @@
 
 <div id="main_content">
     <div id="header">
-        <p>All Posts</p>
+        <p class="button"><%= link_to "All posts", root_path %></p>
 
         <div class="buttons">
             <button class="button"><%= link_to "Create New Post", new_post_path %></button>
             <button class="button">Log out</button>
         </div>
     </div>
-
-    <%= flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "alert") %>
-    <% end %>
 
     <%= yield %>
 

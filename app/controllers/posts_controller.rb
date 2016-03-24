@@ -2,8 +2,11 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
 
+  respond_to :json, :xml
+
   def index
     @posts = Post.all.order('created_at DESC')
+    respond_with(@posts)
   end
 
   def new
@@ -19,6 +22,7 @@ class PostsController < ApplicationController
 
   def show
     @post = find_post
+
   end
 
   def edit

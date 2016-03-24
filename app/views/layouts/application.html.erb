@@ -16,7 +16,7 @@
     </div>
 
     <ul>
-        <li class="category">Povio-Blog</li>
+        <li class="category">Povio-Blog <br> (Naren Kukreja)</li>
         <li>Featured Posts</li>
     </ul>
 
@@ -28,7 +28,6 @@
         <li></li>
     </ul>
 
-    <p class="sign_in">Login</p>
 </div>
 
 <div id="main_content">
@@ -36,14 +35,23 @@
         <p class="button"><%= link_to "All posts", root_path %></p>
 
 
+        <% if user_signed_in? %>
+            <div class="buttons">
+                <button class="button"><%= link_to "Create New Post", new_post_path %></button>
+                <button class="button"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
+            </div>
+        <% else %>
+            <div class="buttons">
+                <button class="button"><%= link_to "Create New Post", new_post_path %></button>
+                <button class="button"><%= link_to "Login", new_user_session_path %></button>
+            </div>
 
-        <div class="buttons">
-            <button class="button"><%= link_to "Create New Post", new_post_path %></button>
-            <button class="button">Log out</button>
-        </div>
+    <% end %>
+
     </div>
 
     <p class="notice"><%= notice %></p>
+
     <p class="alert"><%= alert %></p>
 
     <%= yield %>

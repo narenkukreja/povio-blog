@@ -16,9 +16,8 @@
     </div>
 
     <ul>
-        <li class="category">Povio</li>
-        <li><%= link_to "Blog", root_path %></li>
-        <li>About</li>
+        <li class="category">Povio-Blog</li>
+        <li>Featured Posts</li>
     </ul>
 
     <ul>
@@ -36,11 +35,16 @@
     <div id="header">
         <p class="button"><%= link_to "All posts", root_path %></p>
 
+
+
         <div class="buttons">
             <button class="button"><%= link_to "Create New Post", new_post_path %></button>
             <button class="button">Log out</button>
         </div>
     </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 

@@ -1,6 +1,14 @@
 <% @posts.each do |post| %>
     <div class="post_wrapper">
-        <h2 class="title"> <%= link_to post.title, post %></h2>
-        <p class="date">Created on <%= post.created_at.strftime("%B, %d, %Y") %> by <span style="color: #33acb7"><%= post.username %></span></p>
+        <% if post.is_featured %>
+            <h2 class="title"> <%= link_to post.title, post %> <span style="color: #b7000b">(Featured)</span></h2>
+        <% else %>
+            <h2 class="title"> <%= link_to post.title, post %></h2>
+
+        <% end %>
+
+        <p class="date">Created on <%= post.created_at.strftime("%B, %d, %Y") %> by
+            <span style="color: #33acb7"><%= post.user.username %></span></p>
     </div>
 <% end %>
+

@@ -5,8 +5,8 @@
     </h1>
 
     <p class="date">
-        Created <%= time_ago_in_words(@post.created_at) %> ago by <span style="color: #33acb7"><%= @post.username %></span></p>
-    <% if user_signed_in? %>
+        Created <%= time_ago_in_words(@post.created_at) %> ago by <span style="color: #33acb7"><%= @post.user.username  %></span></p>
+    <% if @post.user.id == current_user.id %>
         <span style="color: #33acb7"><br> <%= link_to "Edit", edit_post_path(@post) %> </span> |
         <span style="color: #33acb7"><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}%></span> |
         <span style="color: #33acb7"><%= link_to "View JSON", post_path(@post) + ".json?" %></span> |

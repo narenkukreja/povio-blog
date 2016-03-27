@@ -1,5 +1,5 @@
 set :environment, "development"
 
-every 1.minute do
+every 5.minutes do
   rake "posts:randomize_featured"
 end

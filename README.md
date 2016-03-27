@@ -2,10 +2,10 @@
 
 ### Authentication System (Devise Gem)
 
-Authentication feature was added using the[Devise Gem](https://github.com/plataformatec/devise)along with custom modifications as per assignment instructions.
+Authentication feature was added using the [Devise Gem](https://github.com/plataformatec/devise)along with custom modifications as per assignment instructions.
 ### Featured Post (Whenever Gem)
 
-Featured Post background worker utilized the[Whenever Gem](https://github.com/javan/whenever)to deploy cron jobs.
+Featured Post background worker utilized the [Whenever Gem](https://github.com/javan/whenever)to deploy cron jobs.
 
 Background Worker task located at `lib/tasks/posts.rake` with the following code:
 
@@ -36,7 +36,7 @@ JSON/XML post formats for the index page can be accessed by visiting `http://loc
 
 Additionally each post contains links to view the post in JSON or XML formats.
 
-![alt text]()
+![alt text](https://github.com/narenkukreja/povio-blog/blob/master/app/assets/images/json_xml.png)
 
 ### Frontend
 

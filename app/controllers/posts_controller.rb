@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
 
+  #add JSON/XML views for posts
   respond_to :json, :xml
 
   def index
@@ -24,7 +25,6 @@ class PostsController < ApplicationController
   def show
     @post = find_post
     respond_with(@post)
-
 
   end
 
@@ -51,18 +51,19 @@ class PostsController < ApplicationController
 
   private
 
+  #find post by its id
   def find_post
     Post.find(params[:id])
   end
 
   #private method to allow the post to permit and save data for the title and description
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :username)
   end
 
   #edit post
   def edit_post_params
-    params[:post].permit(:title, :description)
+    params[:post].permit(:title, :description, :username)
   end
 
 end

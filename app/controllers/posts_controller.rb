@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order('created_at DESC')
     respond_with(@posts)
+
   end
 
   def new
@@ -22,6 +23,8 @@ class PostsController < ApplicationController
 
   def show
     @post = find_post
+    respond_with(@post)
+
 
   end
 
@@ -51,6 +54,7 @@ class PostsController < ApplicationController
   def find_post
     Post.find(params[:id])
   end
+
   #private method to allow the post to permit and save data for the title and description
   def post_params
     params.require(:post).permit(:title, :description)

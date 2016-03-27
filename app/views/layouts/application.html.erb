@@ -17,14 +17,25 @@
 
     <ul>
         <li class="category">Povio-Blog <br> (Naren Kukreja)</li>
-        <li>Featured Posts</li>
     </ul>
 
+    <br><br><br>
+
     <ul>
-        <li class="category">Social</li>
-        <li>Email</li>
-        <li>Github</li>
-        <li></li>
+        <li class="category">Featured Post</li>
+
+        <!-- Find featured post from the database -->
+        <% @f_post = Post.find_by_is_featured(true) %>
+
+        <!-- Handle Rails errors  -->
+        <% if @f_post.nil? %>
+        <% else %>
+            <p style="color: #b78301"><%= link_to @f_post.title, @f_post %></p>
+        <% end %>
+
+        <!--<li>Email</li>-->
+        <!--<li>Github</li>-->
+        <!--<li></li>-->
         <li></li>
     </ul>
 
@@ -33,7 +44,6 @@
 <div id="main_content">
     <div id="header">
         <p class="button"><%= link_to "All posts", root_path %></p>
-
 
         <% if user_signed_in? %>
             <div class="buttons">
@@ -45,8 +55,7 @@
                 <button class="button"><%= link_to "Create New Post", new_post_path %></button>
                 <button class="button"><%= link_to "Login", new_user_session_path %></button>
             </div>
-
-    <% end %>
+        <% end %>
 
     </div>
 
